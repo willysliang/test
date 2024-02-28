@@ -12,8 +12,11 @@
   "license": "ISC",
   "husky": {
     "hooks": {
-      "pre-commit": "prettier --write --log-level warn \"./src/**/*.{js,ts,json,tsx,css,less,scss,html,md,vue}\" && git add -A ."
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*": "prettier --write --log-level warn \"./src/**/*.{js,ts,json,tsx,css,less,scss,html,md,vue}\""
   },
   "dependencies": {
     "husky": "^9.0.11",
