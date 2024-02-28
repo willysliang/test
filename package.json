@@ -1,0 +1,22 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier --write --log-level warn \"./src/**/*.{js,ts,json,tsx,css,less,scss,html,md,vue}\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "prettier --write --log-level warn \"./src/**/*.{js,ts,json,tsx,css,less,scss,html,md,vue}\" && git add -A ."
+    }
+  },
+  "dependencies": {
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5"
+  }
+}

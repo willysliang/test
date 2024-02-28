@@ -1,0 +1,27 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  husky:
+    specifier: ^9.0.11
+    version: 9.0.11
+  prettier:
+    specifier: ^3.2.5
+    version: 3.2.5
+
+packages:
+
+  /husky@9.0.11:
+    resolution: {integrity: sha512-AB6lFlbwwyIqMdHYhwPe+kjOC3Oc5P3nThEoW/AaO2BX3vJDjWPFxYLxokUZOo6RNX20He3AaT8sESs9NJcmEw==, tarball: https://registry.npmmirror.com/husky/-/husky-9.0.11.tgz}
+    engines: {node: '>=18'}
+    hasBin: true
+    dev: false
+
+  /prettier@3.2.5:
+    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==, tarball: https://registry.npmmirror.com/prettier/-/prettier-3.2.5.tgz}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: false
