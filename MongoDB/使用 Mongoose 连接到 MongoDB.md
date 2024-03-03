@@ -57,9 +57,7 @@ Mongoose 会自动重新连接到 MongoDB。在内部，如果您连接到单个
 
 ```js
 mongoose.connect('mongodb://localhost:27017/test', {
-  useNewUrlParser: true, // Boilerplate // 如果失去连接，请尝试每 2 秒重新连接一次。尝试 60 次后，放弃并发出 reconnectFailed。
-  reconnectTries: 60,
-  reconnectInterval: 2000
+  
 })
 ```
 
