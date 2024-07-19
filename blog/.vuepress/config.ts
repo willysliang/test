@@ -2,7 +2,7 @@
  * @ Author: willy
  * @ CreateTime: 2024-02-26 19:19:37
  * @ Modifier: willysliang
- * @ ModifierTime: 2024-03-12 23:02:57
+ * @ ModifierTime: 2024-07-19 12:38:54
  * @ Description: 配置文件
  */
 
@@ -22,7 +22,7 @@ export default defineUserConfig({
   }),
   theme,
 
-  base: '/static_blog/',
+  base: '/blog/',
   port: 8080,
 
   lang: 'zh-CN',
