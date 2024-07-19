@@ -49,15 +49,10 @@
   },
   "types": ["vite/client", "**/*.d.ts"],
   "include": [
-    "packages/**/*.ts",
-    "packages/**/*.d.ts",
-    "packages/**/*.tsx",
-    "packages/**/*.vue",
     "types/**/*.d.ts",
     "types/**/*.ts",
     "blog/**/*.js",
     "blog/**/*.ts",
-    "packages/utils/src/algorithm/test.js"
   ],
   "exclude": [
     "node_modules",

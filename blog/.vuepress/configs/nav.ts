@@ -27,18 +27,10 @@ const getDirectoryPathFileNames = (
   const result: (string | Record<string, string>)[] = []
 
   const directoryPathList = [
-    '前端基础',
-    '前端框架',
-    '前端算法',
-    '前端进阶',
-    '后端基础',
-    '构建工具',
-    '计算机网络',
-    '学海无涯',
+    '.vuepress',
+    'images',
+    'node_modules',
   ]
-
-  // 忽略的md名单 （只要 md 文件名存在这个名，则忽略这个文件的构建）
-  const ignoreMdList = ['前端面试', '杂记']
 
   // files 参数是包含文件名的数组
   files.forEach((file) => {
@@ -47,7 +39,7 @@ const getDirectoryPathFileNames = (
 
     // 如果是目录，并且在规定的文件目录下，则插入结果
     if (stats.isDirectory()) {
-      if (!isGetFile && directoryPathList.includes(file)) result.push(file)
+      if (!isGetFile && !directoryPathList.includes(file)) result.push(file)
     } else if (isGetFile) {
       // 如果是文件，并且文件名以 md 结尾，则插入结果
       const curFileNames = file.split('.')
@@ -56,12 +48,10 @@ const getDirectoryPathFileNames = (
           .slice(0, curFileNames.length - 1)
           .join('')
 
-        if (!ignoreMdList.some((item) => curFileName.includes(item))) {
           result.push({
             filePath: `/${prefix}/${curFileName}`,
             fileName: curFileName,
           })
-        }
       }
     }
   })
