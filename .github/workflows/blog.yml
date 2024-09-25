@@ -51,7 +51,7 @@ jobs:
       - name: Install requests package
         run: pnpm install
       - name: Build
-        run: pnpm run build
+        run: pnpm run docs:build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
