@@ -28,25 +28,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Clear Cache
+        uses: actions/cache@v2
+        with:
+          path: /path/to/cache # 指定要清除的缓存路径
+          key: ${{ runner.os }}-cache # 缓存的键，用于标识不同的缓存
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
+      - name: pnpm
+        uses: pnpm/action-setup@v2
         with:
-          fetch-depth: 0 # 如果未启用 lastUpdated，则不需要
-      - uses: pnpm/action-setup@v3 # 如果使用 pnpm，请取消注释
-      # - uses: oven-sh/setup-bun@v1 # 如果使用 Bun，请取消注释
-      - name: Setup Node
-        uses: actions/setup-node@v4
+          version: 7
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
-          cache: pnpm # 或 pnpm / yarn
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
       - name: Install dependencies
-        run: pnpm install # 或 pnpm install / yarn install / bun install
-      - name: Build with VitePress
-        run: pnpm run docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
+        run: pnpm install --no-frozen-lockfile && pnpm install
+      - name: Install requests package
+        run: pnpm install
+      - name: Build
+        run: pnpm run build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v2
         with:
           path: docs/.vitepress/dist
 
